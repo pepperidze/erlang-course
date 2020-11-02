@@ -7,6 +7,7 @@
 
 is_palindrome(L) ->
     is_palindrome(L, reverse(L)).
+
 is_palindrome([H|T1], [H|T2]) ->
     is_palindrome(T1, T2);
 is_palindrome([], []) ->
