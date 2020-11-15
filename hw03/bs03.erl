@@ -5,10 +5,13 @@
 split(B, Delimiter) ->
     split(B, list_to_binary(Delimiter), <<>>, []).
 
-% trying to pass separator length via args, but whatever I do, variable is unbound
-split(<<Delimiter:3/binary, Rest/binary>>, Delimiter, AccWord, AccList) ->
-    split(Rest, Delimiter, <<>>, [AccWord|AccList]);
-split(<<X/utf8, Rest/binary>>, Delimiter, AccWord, AccList) ->
-    split(Rest, Delimiter, <<AccWord/binary, X/utf8>>, AccList);
-split(<<>>, _Delimiter, AccWord, AccList) ->
-    reverse([AccWord|AccList]).
+split(B, Delimiter, AccWord, AccList) ->
+    Length = byte_size(Delimiter),
+    case B of
+        <<Delimiter:Length/binary, Rest/binary>> ->
+            split(Rest, Delimiter, <<>>, [AccWord|AccList]);
+        <<X/utf8, Rest/binary>> ->
+            split(Rest, Delimiter, <<AccWord/binary, X/utf8>>, AccList);
+        <<>> ->
+            reverse([AccWord|AccList])
+    end.
