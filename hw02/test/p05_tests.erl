@@ -11,6 +11,6 @@ reverse_test_() -> [
     ?_assert(p05:reverse("ab") =:= "ba"),
     ?_assert(p05:reverse("abc") =:= "cba"),
     ?_assertException(error, function_clause, p05:reverse(a)),
-	?_assertException(error, function_clause, p05:reverse(1)),
+    ?_assertException(error, function_clause, p05:reverse(1)),
     ?_assertException(error, function_clause, p05:reverse(<<"abc">>))
 ].

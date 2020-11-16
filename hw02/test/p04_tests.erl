@@ -10,5 +10,5 @@ len_test_() -> [
     ?_assert(p04:len([a, b]) =:= 2),
     ?_assert(p04:len([a, b, c]) =:= 3),
     ?_assertException(error, function_clause, p04:len(a)),
-	?_assertException(error, function_clause, p04:len(1))
+    ?_assertException(error, function_clause, p04:len(1))
 ].

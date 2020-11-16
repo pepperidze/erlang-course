@@ -10,6 +10,6 @@ compress_test_() -> [
     ?_assert(p08:compress("aa") =:= "a"),
     ?_assert(p08:compress([a, a, b, c, c, a, a]) =:= [a, b, c, a]),
     ?_assertException(error, function_clause, p08:compress(a)),
-	?_assertException(error, function_clause, p08:compress(1)),
+    ?_assertException(error, function_clause, p08:compress(1)),
     ?_assertException(error, function_clause, p08:compress(<<"aba">>))
 ].
