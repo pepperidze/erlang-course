@@ -1,0 +1,5 @@
+PROJECT = hw02
+PROJECT_DESCRIPTION = HW02 tasks
+PROJECT_VERSION = 0.1.0
+
+include erlang.mk
