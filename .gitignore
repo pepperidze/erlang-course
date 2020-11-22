@@ -18,9 +18,3 @@ _checkouts/
 
 # docs
 docs/
-
-# erlang.mk
-*.d
-*.app
-erlang.mk
-.erlang.mk
